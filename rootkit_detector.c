@@ -35,5 +35,15 @@ void deep_scan_signals(){
     printf("[+] Scan finished. Suspects found: %d\n", hidden_count);
 }
 
-int main() {
+int main(){
+    if(geteuid() != 0){
+        fprintf(stderr, "Error: Must run as root.\n");
+        return 1;
+    }
+    // Initialize /proc scanning
+    scan_proc_dir();
+    // Compares
+    deep_scan_signals();
+
+    return 0;
 }
