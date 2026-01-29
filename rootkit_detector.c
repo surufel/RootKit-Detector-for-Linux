@@ -7,6 +7,7 @@
 #include <signal.h>
 #include <dirent.h>
 #include <ctype.h>
+#include <stdint.h>
 
 #define MAX_PID 32768 // 4KB
 #define BITSET_SIZE (MAX_PID / 8) // Gets the max size of PIDs and divides by 1 byte, managing the PIDs and grabbing only their index.
@@ -19,7 +20,7 @@ typedef struct {
 
 
 // global Bitset to mark visible PIDs at /proc
-unsigned char proc_pids[BITSET_SIZE]; // proc_pids = Processed PIDs
+uint8_t proc_pids[BITSET_SIZE]; // proc_pids = Processed PIDs
 
 void mark_pid(int pid){
     if(pid < MAX_PID){
