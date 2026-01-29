@@ -47,7 +47,7 @@ static void scan_proc_dir() {
             char path[64];
             snprintf(path, sizeof(path), "/proc/%d/comm", pid);
 
-            if(acess(path, F_OK) == 0){
+            if(access(path, F_OK) == 0){
                 mark_pid(pid);
             } // Marks the PID.
          }
