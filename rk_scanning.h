@@ -27,26 +27,22 @@ static bool is_marked(int pid){
 }
 
 static void scan_proc_dir() {
-    DIR *dir;
+    DIR *dir = opendir("/proc");
     struct dirent *entry;
-    // Opens /proc directory
-    dir = opendir("/proc");
-    if (dir == NULL){
-        perror("[-] Failed to open /proc");
-        return;
-    }
+    if (!dir){return;}
     // Iterates over each directory entry
     while ((entry = readdir(dir)) != NULL) {
         // The program will look for PIDs. d_type == DT_DIR verifies if the file is a directory, and checks out if it is a digit as well (because PIDs are directories named as numbers)
-        if (entry->d_type == DT_DIR && isdigit(entry->d_name[0])) {
+        if(entry->d_type == DT_DIR && isdigit(entry->d_name){
             int pid = atoi(entry->d_name);
-            // Marks the PID
-            if(pid < MAX_PID){
-                 mark_pid(pid);
-             }
+            char path[64];
+            snprintf(path, sizeof(path), "/proc/%d/comm", pid);
+
+            if(acess(path, F_OK) == 0){
+                mark_pid(pid);
+            } // Marks the PID.
          }
      }
-
      closedir(dir);
      printf("[+] /proc scanning completed.\n");
  }
