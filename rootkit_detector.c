@@ -29,5 +29,10 @@ void mark_pid(int pid){
     }
 }
 
+bool is_marked(int pid){
+    if(pid >= MAX_PID){return false;} // if it returns false, it is a rootkit.
+    return proc_pids[pid / 8] & (1 << (pid % 8)); // Expected result is either 0 or x higher than 0. It grabs where is the processed PID, and bit-shifts 1 for (pid%8) times, and uses the &(AND) operator with the PID.
+}
+
 int main() {
 }
