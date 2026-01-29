@@ -21,5 +21,12 @@ typedef struct {
 // global Bitset to mark visible PIDs at /proc
 unsigned char proc_pids[BITSET_SIZE]; // proc_pids = Processed PIDs
 
+void mark_pid(int pid){
+    if(pid < MAX_PID){
+        proc_pids[pid / 8] |= (1 << (pid % 8));
+        // proc_pids[Which index it is located in the array, which byte] OR (|=) (1 << (shift left) (which bit))
+    }
+}
+
 int main() {
 }
