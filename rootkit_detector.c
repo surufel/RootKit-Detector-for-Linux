@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <dirent.h>
+#include <ctype.h>
+
+#define MAX_PID 32768 // 4KB
+#define BITSET_SIZE (MAX_PID / 8) // Gets the max size of PIDs and divides by 1 byte, managing the PIDs and grabbing only their index.
+
+typedef struct {
+    int pid;
+    char status[20];
+    bool is_hidden;
+}suspectProcess;
+
+
+// global Bitset to mark visible PIDs at /proc
+unsigned char proc_pids[BITSET_SIZE]; // proc_pids = Processed PIDs
+
+int main() {
+}
