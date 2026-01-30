@@ -1,4 +1,4 @@
-# RootKit-Detector-for-Linux
+# Rootkit Detection Tool for Linux
 
 A lightweight security tool written in C to detect hidden processes using Cross-View Analysis.
 
