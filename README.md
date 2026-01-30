@@ -28,9 +28,9 @@ Below you can see the detector in action. The tool performs a cross-view analysi
 
 The PID above comes from a shell script which hides the process by using Mount Masking
 
-![Detection Alert](img/demo_scan_2.png)
+The detector sucessfully identifies the hidden PID that standard tools like `ps` or `top` would miss:
 
-The detector successfully identifies the hidden PID that standard tools like `ps` or `top` would miss:
+![Detection Alert](img/demo_scan_2.png)
 
 ## Build Process
 
