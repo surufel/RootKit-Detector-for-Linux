@@ -28,7 +28,7 @@ First, you'll have to clone the repository and change to the repository director
 git clone https://github.com/surufel/RootKit-Detector-for-Linux.git && cd RootKit-Detector-for-Linux
 ```
 
-There should be a compiled version of the program, if not, you should run:
+Then, you have to compile the program, run:
 
 ```bash
 make
@@ -37,6 +37,7 @@ make
 And let the Makefile compile it for you.
 
 Alternatively, you may run:
+
 ```bash
 gcc rootkit_detector.c -o rootkit_detector
 ```
